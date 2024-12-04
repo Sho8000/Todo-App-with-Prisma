@@ -1,0 +1,26 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.deleteLine{
+  text-decoration: line-through;
+}
+.hideForEdit{
+  display: none;
+}
+
+.appTitle{
+  .title{
+    text-align: center;
+  }
+}
+.todoList{
+  width: 80%;
+  margin: auto;
+  .check{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

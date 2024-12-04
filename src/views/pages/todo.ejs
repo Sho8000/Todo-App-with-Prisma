@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partial/head.ejs",{title:"todoList", style:"/css/todo.css"}) %>
+<script src="/js/todo.js" defer></script>
+
+  <body>
+    <div class="appTitle">
+      <h1 class="title">Todo App</h1>
+    </div>
+    <div class="formContainer">
+      <form action="/api/v1/projects" method="post" id="newTodo">
+        <input type="text" placeholder="Add a new Todo" name="title" required>
+        <button type="submit" id="submit">Add Todo</button>
+      </form>
+    </div>
+    <div class="todoList">
+      <% if(todoList.length===0) {%>
+        <h2>No Todo List</h2>
+      <%} else {todoList.forEach(item => { %>
+        <div class="check" id="item<%= item.id%>" data-item-title="<%= item.title%>" data-item-id="<%= item.id%>" data-item-isDone="<%= item.isDone%>">
+          <div class="checkBtn">O</div>
+          <h2 class="todoTitle editTask"><%= item.title %></h2>
+          <input type="text" placeholder="<%= item.title%>" class="editTask hideForEdit inputNewTask">
+          <p class="isdone">Incomplete</p>
+          <div class="edit">EDIT</div>
+          <div class="delete">DELETE</div>
+        </div>
+      <% })} %>
+    </div>
+  </body>
+</html>
